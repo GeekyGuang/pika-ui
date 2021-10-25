@@ -15,6 +15,8 @@
 <style lang="scss" scoped>
   .topnav {
        background: pink;
+       position: relative;
+       z-index: 10;
        display: flex;
        padding: 16px;
        > .logo {
