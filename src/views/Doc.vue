@@ -2,7 +2,23 @@
     <div>
         <Topnav />
         <div class="content">
-            <aside>边栏</aside>
+            <aside>
+                <h2>组件列表</h2>
+                <ol>
+                    <li>
+                        <routerlink to="/doc/switch">Switch组件</routerlink>
+                    </li>
+                    <li>
+                        <routerlink to="/doc/button">Button组件</routerlink>
+                    </li>
+                    <li>
+                        <routerlink to="/doc/dialog">Dialog组件</routerlink>
+                    </li>
+                    <li>
+                        <routerlink to="/doc/tabs">Tabs组件</routerlink>
+                    </li>
+                </ol>
+            </aside>
             <main>主内容</main>
         </div>
     </div>
