@@ -1,11 +1,16 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-</script>
-
 <template>
 <router-view />
 </template>
+
+<script lang="ts">
+  import {ref, provide} from 'vue'
+  export default {
+      setup(){
+          const menuVisible = ref(false)
+          provide('menuVisible', menuVisible)
+      }
+  }
+</script>
 
 <style lang="scss">
 
