@@ -23,7 +23,10 @@
 <style lang="scss" scoped>
   .topnav {
        background: pink;
-       position: relative;
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
        z-index: 10;
        display: flex;
        padding: 16px;
