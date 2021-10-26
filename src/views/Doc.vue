@@ -29,7 +29,7 @@ import {inject, Ref} from 'vue'
 export default {
     components: {Topnav},
     setup() {
-       const menuVisible = inject<Ref<boolean>>('menuVisible')
+       const menuVisible = inject<Ref<boolean>>('menuVisible')!
        return {menuVisible}
     }
 }
