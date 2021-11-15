@@ -29,6 +29,29 @@ export default {
       background: #bfbfbf;
       border-radius: math.div($h,2);
       position: relative;
+
+    &:focus {
+      outline: none;
+      }
+    &.checked {
+      background: #1890ff;
+
+      & > span {
+          left: calc(100% - #{$h2} - 2px)
+      }
+    }
+    &:active {
+      > span {
+          width: $h2 + 4px;
+      }
+    }
+
+    &.checked:active {
+      > span {
+          width: $h2 + 4px;
+          margin-left: -4px;
+      }
+    }
   }
   span {
       position: absolute;
@@ -40,26 +63,5 @@ export default {
       border-radius: math.div($h2,2);
       transition: all 250ms;
   }
-  button:focus {
-      outline: none;
-  }
-  button.checked {
-      background: #1890ff;
 
-      & > span {
-          left: calc(100% - #{$h2} - 2px)
-      }
-  }
-  button:active {
-      > span {
-          width: $h2 + 4px;
-      }
-  }
-
-  button.checked:active {
-      > span {
-          width: $h2 + 4px;
-          margin-left: -4px;
-      }
-  }
 </style>
