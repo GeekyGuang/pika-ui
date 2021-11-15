@@ -37,6 +37,10 @@ export default {
       width: $h2;
       background: white;
       border-radius: math.div($h2,2);
+      transition: left 250ms;
+  }
+  button:focus {
+      outline: none;
   }
   button.checked {
       background: blue;
