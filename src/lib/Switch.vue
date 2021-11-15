@@ -7,9 +7,9 @@ export default {
     props: {
         value: Boolean
     },
-  setup(props, context){
+  setup(props: { value: any }, context: { emit: (arg0: string, arg1: boolean) => void }){
      const toggle = () => {
-         context.emit('input', !props.value)
+         context.emit('update:value', !props.value)
      }
      return {
          toggle
