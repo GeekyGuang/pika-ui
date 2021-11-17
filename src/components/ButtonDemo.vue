@@ -1,7 +1,7 @@
 <template>
     <h1>示例1</h1>
     <div>
-        <Button>你好</Button>
+        <Button @click="onClick">你好</Button>
         <Button theme="button">普通按钮</Button>
         <Button theme="link">链接按钮</Button>
         <Button theme="text">文字按钮</Button>
@@ -62,6 +62,12 @@ export default {
         Button
     },
     setup(){
+        const onClick = () => {
+            console.log('hi')
+        }
+        return {
+            onClick
+        }
     }
 }
 </script>
