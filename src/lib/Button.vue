@@ -1,5 +1,5 @@
 <template>
-    <button class="pika-button" :class="{[`theme-${theme}`]: theme}">
+    <button class="pika-button" :class="{[`pika-theme-${theme}`]: theme}">
         <slot/>
     </button>
 </template>
@@ -16,7 +16,7 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   $h: 32px;
   $border-color: #d9d9d9;
   $color: #333;

@@ -1,5 +1,5 @@
 <template>
-    <button @click="toggle" :class="{checked:value}"><span></span></button>
+    <button class="pika-switch" @click="toggle" :class="{'pika-checked':value}"><span></span></button>
 </template>
 
 <script lang="ts">
@@ -18,11 +18,11 @@ export default {
 }
 
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   @use "sass:math";
   $h: 22px;
   $h2: $h - 4px;
-  button {
+  .pika-switch {
       height: $h;
       width: $h*2;
       border: none;
@@ -33,7 +33,7 @@ export default {
     &:focus {
       outline: none;
       }
-    &.checked {
+    &.pika-checked {
       background: #1890ff;
 
       & > span {
@@ -46,7 +46,7 @@ export default {
       }
     }
 
-    &.checked:active {
+    &.pika-checked:active {
       > span {
           width: $h2 + 4px;
           margin-left: -4px;
