@@ -52,8 +52,8 @@ export default {
           margin-left: -4px;
       }
     }
-  }
-  span {
+
+    > span {
       position: absolute;
       top: 2px;
       left: 2px;
@@ -62,6 +62,8 @@ export default {
       background: white;
       border-radius: math.div($h2,2);
       transition: all 250ms;
+   }
   }
+
 
 </style>
