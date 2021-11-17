@@ -85,17 +85,15 @@ export default {
           }
       }
 
-      &.pika-theme-button {
-          &.pika-size-big {
-              font-size: 24px;
-              height: 48px;
-              padding: 0 16px;
-          }
-          &.pika-size-small {
-              font-size: 12px;
-              height: 20px;
-              padding: 0 4px;
-          }
-      }
+        &.pika-size-big {
+            font-size: 24px;
+            height: 48px;
+            padding: 0 16px;
+        }
+        &.pika-size-small {
+            font-size: 12px;
+            height: 20px;
+            padding: 0 4px;
+        }
   }
 </style>
