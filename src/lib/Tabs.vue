@@ -1,7 +1,12 @@
 <template>
-    <div>Tabs组件</div>
-    <div v-for="title in titles" :key="title">{{title}}</div>
-    <component v-for="(tab,index) of defaults" :is="tab" :key="index"/>
+    <div class="pika-tabs">
+        <div class="pika-tabs-nav">
+            <div class="pika-tabs-nav-item" v-for="title in titles" :key="title">{{title}}</div>
+        </div>
+        <div class="pika-tabs-content">
+            <component class="pika-tabs-content-item" v-for="(tab,index) of defaults" :is="tab" :key="index"/>
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
@@ -23,3 +28,35 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+$blue: #40a9ff;
+$color: #333;
+$border-color: #d9d9d9;
+
+.pika-tabs {
+    &-nav {
+        display: flex;
+        color: $color;
+        border-bottom: 1px solid $border-color;
+
+        &-item {
+            padding: 8px 0;
+            margin: 0 16px;
+            cursor: pointer;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &.selected {
+                color: $blue;
+            }
+        }
+    }
+
+    &-content {
+        padding: 8px 0;
+    }
+}
+</style>
