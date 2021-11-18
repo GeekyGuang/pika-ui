@@ -1,7 +1,15 @@
 <template>
     <h1>示例1</h1>
     <Button @click="toggle">Toggle</Button>
-    <Dialog v-model:visible="x" :ok="f1" :cancel="f2" />
+    <Dialog v-model:visible="x" :ok="f1" :cancel="f2" >
+        <template v-slot:title>
+            <strong>加粗的标题</strong>
+        </template>
+        <template v-slot:content>
+            <strong>第一行文字</strong>
+            <div>第二行文字</div>
+        </template>
+    </Dialog>
 </template>
 
 "<script lang="ts">
