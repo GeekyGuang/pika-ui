@@ -1,5 +1,6 @@
 <template>
   <template v-if="visible">
+    <teleport to="body">
     <div class="pika-dialog-overlay" @click="closeOverlay"></div>
     <div class="pika-dialog-wrapper">
         <div class="pika-dialog">
@@ -11,8 +12,10 @@
             <Button level="main" @click="ok">OK</Button>
             <Button @click="cancel">Cancel</Button>
         </footer>
+        </div>
     </div>
-    </div>
+    </teleport>
+    
   </template>
 </template>
 
