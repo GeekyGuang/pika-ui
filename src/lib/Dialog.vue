@@ -1,4 +1,5 @@
 <template>
+  <template v-if="visible">
     <div class="pika-dialog-overlay"></div>
     <div class="pika-dialog-wrapper">
         <div class="pika-dialog">
@@ -13,14 +14,23 @@
         </footer>
     </div>
     </div>
-
+  </template>
 </template>
 
 <script lang="ts">
 import Button from './Button.vue'
 export default {
+    props: {
+        visible: {
+            type: Boolean,
+            default: false
+        }
+    },
   components: {
       Button
+  },
+  setup(){
+
   }
 }
 </script>
