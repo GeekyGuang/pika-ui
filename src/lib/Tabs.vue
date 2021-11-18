@@ -1,7 +1,7 @@
 <template>
     <div class="pika-tabs">
-        <div class="pika-tabs-nav">
-            <div class="pika-tabs-nav-item" v-for="title in titles" :key="title">{{title}}</div>
+        <div class="pika-tabs-nav" >
+            <div class="pika-tabs-nav-item" :class="{selected: title === selected}" v-for="title in titles" :key="title" @click="changeTab(title)">{{title}}</div>
         </div>
         <div class="pika-tabs-content">
             <component class="pika-tabs-content-item" v-for="(tab,index) of defaults" :is="tab" :key="index"/>
@@ -12,6 +12,9 @@
 <script lang="ts">
 import Tab from './Tab.vue'
 export default {
+    props:{
+        selected: String
+    },
     setup(props,context){
        const defaults = context.slots.default()
        defaults.forEach(tag => {
@@ -20,10 +23,15 @@ export default {
          }
        })
 
+       const changeTab = (value) => {
+          context.emit('update:selected', value)
+       }
+
        const titles = defaults.map(tab => tab.props.title)
        return {
            defaults,
-           titles
+           titles,
+           changeTab
        }
     }
 }
