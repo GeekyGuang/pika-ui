@@ -4,12 +4,13 @@
             <div class="pika-tabs-nav-item" :class="{selected: title === selected}" v-for="title in titles" :key="title" @click="changeTab(title)">{{title}}</div>
         </div>
         <div class="pika-tabs-content">
-            <component class="pika-tabs-content-item" v-for="(tab,index) of defaults" :is="tab" :key="index"/>
+            <component class="pika-tabs-content-item"  :is="current" :key="selected"/>
         </div>
     </div>
 </template>
 
 <script lang="ts">
+import { computed } from 'vue'
 import Tab from './Tab.vue'
 export default {
     props:{
@@ -28,10 +29,13 @@ export default {
        }
 
        const titles = defaults.map(tab => tab.props.title)
+       const current = computed(() => defaults.find(item => item.props.title === props.selected))
+
        return {
            defaults,
            titles,
-           changeTab
+           changeTab,
+           current
        }
     }
 }
