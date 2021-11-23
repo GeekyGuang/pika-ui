@@ -1,8 +1,12 @@
 <template>
     <div class="pika-tabs">
         <div class="pika-tabs-nav" >
-            <div class="pika-tabs-nav-item" :class="{selected: title === selected}" v-for="title in titles" :key="title" @click="changeTab(title)">{{title}}</div>
-            <div class="pika-tabs-nav-indicator"></div>
+            <div class="pika-tabs-nav-item" 
+            v-for="(title,index) in titles"
+            :ref="el => { if (el) navItems[index] = el }"
+            :class="{selected: title === selected}" 
+            :key="index" @click="changeTab(title)">{{title}}</div>
+            <div ref="indicator" class="pika-tabs-nav-indicator"></div>
         </div>
         <div class="pika-tabs-content">
             <component class="pika-tabs-content-item"  :is="current" :key="selected"/>
@@ -11,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { computed } from 'vue'
+import { computed,onMounted,onUpdated, ref } from 'vue'
 import Tab from './Tab.vue'
 export default {
     props:{
@@ -19,6 +23,24 @@ export default {
     },
     setup(props,context){
        const defaults = context.slots.default()
+       const navItems = ref([])
+       const indicator = ref(null)
+
+       onMounted(()=>{
+        const divs = navItems.value
+        const result = divs.filter(item => item.classList.contains('selected'))[0]
+        const {width} = result.getBoundingClientRect()
+        indicator.value.style.width = width + 'px'
+
+       })
+
+       onUpdated(()=> {
+        const divs = navItems.value
+        const result = divs.filter(item => item.classList.contains('selected'))[0]
+        const {width} = result.getBoundingClientRect()
+        indicator.value.style.width = width + 'px'
+       })
+       
        defaults.forEach(tag => {
            if(tag.type !== Tab) {
              throw new Error('Tabs的子标签必须为Tab')
@@ -36,7 +58,9 @@ export default {
            defaults,
            titles,
            changeTab,
-           current
+           current,
+           navItems,
+           indicator
        }
     }
 }
