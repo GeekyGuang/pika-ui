@@ -1,6 +1,6 @@
 <template>
     <div class="pika-tabs">
-        <div class="pika-tabs-nav" >
+        <div class="pika-tabs-nav" ref="container">
             <div class="pika-tabs-nav-item" 
             v-for="(title,index) in titles"
             :ref="el => { if (el) navItems[index] = el }"
@@ -25,22 +25,21 @@ export default {
        const defaults = context.slots.default()
        const navItems = ref([])
        const indicator = ref(null)
+       const container = ref(null)
 
-       onMounted(()=>{
+       const x = () => {
         const divs = navItems.value
         const result = divs.filter(item => item.classList.contains('selected'))[0]
-        const {width} = result.getBoundingClientRect()
+        const {width, left: left2} = result.getBoundingClientRect()
         indicator.value.style.width = width + 'px'
 
-       })
+        const {left: left1} = container.value.getBoundingClientRect()
+        indicator.value.style.left = (left2 - left1) + 'px'
+       }
 
-       onUpdated(()=> {
-        const divs = navItems.value
-        const result = divs.filter(item => item.classList.contains('selected'))[0]
-        const {width} = result.getBoundingClientRect()
-        indicator.value.style.width = width + 'px'
-       })
-       
+       onMounted(x)
+       onUpdated(x)
+
        defaults.forEach(tag => {
            if(tag.type !== Tab) {
              throw new Error('Tabs的子标签必须为Tab')
@@ -60,7 +59,8 @@ export default {
            changeTab,
            current,
            navItems,
-           indicator
+           indicator,
+           container
        }
     }
 }
@@ -85,6 +85,7 @@ $border-color: #d9d9d9;
             background: $blue;
             left: 0;
             bottom: -1px;
+            transition: all 250ms;
         }
 
         &-item {
