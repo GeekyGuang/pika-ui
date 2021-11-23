@@ -2,6 +2,7 @@
     <div class="pika-tabs">
         <div class="pika-tabs-nav" >
             <div class="pika-tabs-nav-item" :class="{selected: title === selected}" v-for="title in titles" :key="title" @click="changeTab(title)">{{title}}</div>
+            <div class="pika-tabs-nav-indicator"></div>
         </div>
         <div class="pika-tabs-content">
             <component class="pika-tabs-content-item"  :is="current" :key="selected"/>
@@ -51,6 +52,16 @@ $border-color: #d9d9d9;
         display: flex;
         color: $color;
         border-bottom: 1px solid $border-color;
+        position: relative;
+
+        &-indicator {
+            position: absolute;
+            height: 3px;
+            width: 100px;
+            background: $blue;
+            left: 0;
+            bottom: -1px;
+        }
 
         &-item {
             padding: 8px 0;
