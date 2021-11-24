@@ -3,7 +3,7 @@
         <div class="pika-tabs-nav" ref="container">
             <div class="pika-tabs-nav-item" 
             v-for="(title,index) in titles"
-            :ref="el => { if (el) navItems[index] = el }"
+            :ref="el => { if (title === selected) selectedItem = el }"
             :class="{selected: title === selected}" 
             :key="index" @click="changeTab(title)">{{title}}</div>
             <div ref="indicator" class="pika-tabs-nav-indicator"></div>
@@ -23,14 +23,12 @@ export default {
     },
     setup(props,context){
        const defaults = context.slots.default()
-       const navItems = ref([])
+       const selectedItem = ref(null)
        const indicator = ref(null)
        const container = ref(null)
 
        const x = () => {
-        const divs = navItems.value
-        const result = divs.filter(item => item.classList.contains('selected'))[0]
-        const {width, left: left2} = result.getBoundingClientRect()
+        const {width, left: left2} = selectedItem.value.getBoundingClientRect()
         indicator.value.style.width = width + 'px'
 
         const {left: left1} = container.value.getBoundingClientRect()
@@ -58,7 +56,7 @@ export default {
            titles,
            changeTab,
            current,
-           navItems,
+           selectedItem,
            indicator,
            container
        }
