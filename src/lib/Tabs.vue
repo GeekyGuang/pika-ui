@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { computed,onMounted,onUpdated, ref } from 'vue'
+import { computed,onMounted,onUpdated, ref, watchEffect } from 'vue'
 import Tab from './Tab.vue'
 export default {
     props:{
@@ -27,16 +27,16 @@ export default {
        const indicator = ref(null)
        const container = ref(null)
 
-       const x = () => {
+       onMounted(()=>{
+           watchEffect(() => {
+        console.log(selectedItem.value)
         const {width, left: left2} = selectedItem.value.getBoundingClientRect()
         indicator.value.style.width = width + 'px'
 
         const {left: left1} = container.value.getBoundingClientRect()
         indicator.value.style.left = (left2 - left1) + 'px'
-       }
-
-       onMounted(x)
-       onUpdated(x)
+       })
+       }) 
 
        defaults.forEach(tag => {
            if(tag.type !== Tab) {
