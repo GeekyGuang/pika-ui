@@ -26,6 +26,14 @@ export default {
      background: linear-gradient(146deg, rgba(255,203,20,1) 0%, rgba(243,174,29,1) 100%);
 }
  .banner {
+     h1 {
+         font-size: 48px;
+         font-weight: 500;
+     }
+     h2 {
+         font-size: 36px;
+         margin-bottom: 10px;
+     }
      h1, h2 {
          color: white;
      }
@@ -37,14 +45,19 @@ export default {
      > .actions {
          padding: 8px 0;
          a {
+             color: #a0fefd;
              margin: 0 8px;
-             background: #fff;
+             background: #3a7dcd;
              display: inline-block;
-             $h: 28px;
-             height: $h;
-             line-height: $h;
-             border-radius: math.div($h,2);
-             padding: 0 8px;
+             
+             border: 2px solid #77cdfa;
+             border-radius: 4px;
+             padding: 8px 24px;
+
+             &:hover {
+                 box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+             }
+
          }
      }
  }

@@ -23,6 +23,7 @@
 <style lang="scss" scoped>
   .topnav {
       color: white;
+      font-size: 20px;
        position: fixed;
        top: 0;
        left: 0;
