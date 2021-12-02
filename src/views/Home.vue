@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="topNavandBanner">
       <Topnav />
       <div class="banner">
           <h1>pika-ui</h1>
@@ -20,13 +20,20 @@ export default {
 </script>
 <style lang="scss" scoped>
 @use "sass:math";
+
+.topNavandBanner {
+     background: rgb(255,203,20);
+     background: linear-gradient(146deg, rgba(255,203,20,1) 0%, rgba(243,174,29,1) 100%);
+}
  .banner {
+     h1, h2 {
+         color: white;
+     }
      padding: 100px 0;
      display: flex;
      justify-content: center;
      align-items: center;
      flex-direction: column;
-     background: lightgreen;
      > .actions {
          padding: 8px 0;
          a {

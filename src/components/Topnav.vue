@@ -22,7 +22,7 @@
 </script>
 <style lang="scss" scoped>
   .topnav {
-       background: pink;
+      color: white;
        position: fixed;
        top: 0;
        left: 0;
