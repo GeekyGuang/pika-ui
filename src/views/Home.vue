@@ -11,6 +11,17 @@
       </div>
 
     </div>
+    <div class="features">
+        <svg class="icon">
+            <use xlink:href="#icon-vue"></use>
+        </svg>
+        <svg class="icon">
+            <use xlink:href="#icon-ts"></use>
+        </svg>
+                <svg class="icon">
+            <use xlink:href="#icon-light"></use>
+        </svg>
+      </div>
 </template>
 <script lang="ts">
 import Topnav from '../components/Topnav.vue'
@@ -20,7 +31,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 @use "sass:math";
-
+.features > svg {
+    width: 64px;
+    height: 64px;
+}
 .topNavandBanner {
      background: rgb(255,203,20);
      background: linear-gradient(146deg, rgba(255,203,20,1) 0%, rgba(243,174,29,1) 100%);
