@@ -3,6 +3,18 @@
         <Topnav class="nav" toggleMenuButtonVisible/>
         <div class="content" >
             <aside v-if="menuVisible">
+                <h2>文档</h2>
+                <ol>
+                    <li>
+                        <router-link to="/doc/intro">介绍</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/doc/install">安装</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/doc/get-started">开始使用</router-link>
+                    </li>
+                </ol>
                 <h2>组件列表</h2>
                 <ol>
                     <li>
@@ -43,7 +55,7 @@ export default {
       > .nav {
           flex-shrink: 0;
           color: black;
-          background: #ffcb14;
+          background: #f7b81a;
           box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
       }
       > .content {
@@ -53,6 +65,9 @@ export default {
           @media (max-width: 500px){
               padding-left: 0;
           }
+        > aside {
+            z-index: 8;
+        }
       }
   }
   .content {
@@ -67,7 +82,7 @@ export default {
       }
   }
   aside {
-      background: lightblue;
+      background: #78d6ef;
       width: 150px;
       padding: 16px;
       position: fixed;
@@ -79,8 +94,13 @@ export default {
           margin-bottom: 4px;
       }
       > ol {
-          > li {
+          > a {
               padding: 4px 0;
+              display: block;
+          }
+
+          .router-link-active {
+              background: white;
           }
       }
   }
