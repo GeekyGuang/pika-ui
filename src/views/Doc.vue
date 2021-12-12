@@ -82,25 +82,28 @@ export default {
       }
   }
   aside {
-      background: #78d6ef;
+      background: #3a7dcd;
       width: 150px;
-      padding: 16px;
       position: fixed;
       top:0;
       left: 0;
       padding-top: 70px;
       height: 100%;
+      color: white;
       > h2 {
           margin-bottom: 4px;
+          padding: 0 16px;
       }
       > ol {
-          > a {
-              padding: 4px 0;
+          a {
+              padding: 4px 16px;
               display: block;
           }
 
           .router-link-active {
-              background: white;
+              background: #f7b81a;
+              color: white;
+              box-shadow: 0 0 3px rgba(0,0,0,0.25);
           }
       }
   }
