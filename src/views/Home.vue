@@ -38,6 +38,7 @@ export default {
 .topNavandBanner {
      background: rgb(255,203,20);
      background: linear-gradient(146deg, rgba(255,203,20,1) 0%, rgba(243,174,29,1) 100%);
+     clip-path: ellipse(80% 60% at 50% 40%);
 }
  .banner {
      h1 {
