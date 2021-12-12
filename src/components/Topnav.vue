@@ -42,7 +42,7 @@
        width: 100%;
        z-index: 10;
        display: flex;
-       padding: 16px;
+       padding: 12px 16px;
        justify-content: center;
        align-items: center;
        > .logo {

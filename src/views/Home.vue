@@ -61,7 +61,7 @@ export default {
 
     @media (min-width: 1200px) {
         grid-template-columns: repeat(3, 1fr);
-        justify-items: center;
+        // justify-items: center;
     }
 
 

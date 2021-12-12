@@ -43,6 +43,8 @@ export default {
       > .nav {
           flex-shrink: 0;
           color: black;
+          background: #ffcb14;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
       }
       > .content {
           flex-grow: 1;
