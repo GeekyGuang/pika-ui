@@ -61,7 +61,7 @@ export default {
       > .content {
           flex-grow: 1;
           padding-top: 60px;
-          padding-left: 156px;
+          padding-left: 206px;
           @media (max-width: 500px){
               padding-left: 0;
           }
@@ -83,7 +83,7 @@ export default {
   }
   aside {
       background: #3a7dcd;
-      width: 150px;
+      width: 200px;
       position: fixed;
       top:0;
       left: 0;
@@ -93,17 +93,22 @@ export default {
       > h2 {
           margin-bottom: 4px;
           padding: 0 16px;
+
+          &:nth-of-type(2) {
+              margin-top: 16px;
+          }
       }
       > ol {
           a {
-              padding: 4px 16px;
+              padding: 8px 32px;
               display: block;
           }
 
           .router-link-active {
               background: #f7b81a;
-              color: white;
+              color: black;
               box-shadow: 0 0 3px rgba(0,0,0,0.25);
+              position: relative;
           }
       }
   }
