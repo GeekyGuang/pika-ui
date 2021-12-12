@@ -35,7 +35,7 @@
 <style lang="scss" scoped>
   .topnav {
       color: white;
-      font-size: 20px;
+      font-size: 18px;
        position: fixed;
        top: 0;
        left: 0;

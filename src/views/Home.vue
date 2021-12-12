@@ -12,7 +12,7 @@
 
     </div>
     <div class="features">
-        <ul>
+        <ul >
         <li>
             <svg class="icon">
                 <use xlink:href="#icon-vue"></use>
@@ -25,7 +25,7 @@
                 <use xlink:href="#icon-ts"></use>
             </svg>
             <h3>基于 TypeScript </h3>
-            <p>源代码采用 TypeScript 书写（非严格检查）</p>
+            <p>源代码采用 TypeScript 书写</p>
         </li>
         <li>
             <svg class="icon">
@@ -35,9 +35,7 @@
             <p>每个组件的源代码都极其简洁</p>
         </li>
 </ul>
-
-
-      </div>
+    </div>
 </template>
 <script lang="ts">
 import Topnav from '../components/Topnav.vue'
@@ -47,20 +45,27 @@ export default {
 </script>
 <style lang="scss" scoped>
 @use "sass:math";
-.features {
-  margin: 64px auto;
-  width: 400px;
-  @media (min-width: 800px) {
-    width: 800px;
-  }
-  @media (min-width: 1200px) {
-    width: 1200px;
-  }
-  >ul {
-    display: flex;
-    flex-wrap: wrap;
+
+  .features{
+      display: flex;
+      justify-content: center;
+  > ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 24px;
+    max-width: 80%;
+
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
+
+
     >li {
-      width: 400px;
       margin: 16px 0;
       display: grid;
       justify-content: start;
@@ -68,23 +73,26 @@ export default {
       grid-template-areas:
         "icon title"
         "icon text";
-      grid-template-columns: 80px auto;
+      grid-template-columns: 56px auto;
       grid-template-rows: 1fr auto;
+      column-gap: 8px;
       >svg {
         grid-area: icon;
-        width: 64px;
-        height: 64px;
+        width: 56px;
+        height: 56px;
       }
       >h3 {
         grid-area: title;
-        font-size: 28px;
+        font-size: 20px;
       }
       >p {
-        grid-area: text
+        grid-area: text;
+        font-size: 14px;
+        padding-right: 8px;
       }
     }
   }
-}
+  }
 .topNavandBanner {
      background: rgb(255,203,20);
      background: linear-gradient(146deg, rgba(255,203,20,1) 0%, rgba(243,174,29,1) 100%);
@@ -92,11 +100,11 @@ export default {
 }
  .banner {
      h1 {
-         font-size: 48px;
+         font-size: 32px;
          font-weight: 500;
      }
      h2 {
-         font-size: 36px;
+         font-size: 24px;
          margin-bottom: 10px;
      }
      h1, h2 {
@@ -108,7 +116,7 @@ export default {
      align-items: center;
      flex-direction: column;
      > .actions {
-         padding: 8px 0;
+         padding-top: 16px;
          a {
              color: #a0fefd;
              margin: 0 8px;
@@ -117,7 +125,7 @@ export default {
              
              border: 2px solid #77cdfa;
              border-radius: 4px;
-             padding: 8px 24px;
+             padding: 4px 16px;
 
              &:hover {
                  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
