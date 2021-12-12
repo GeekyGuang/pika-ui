@@ -2,8 +2,8 @@
     <div class="topNavandBanner">
       <Topnav />
       <div class="banner">
-          <h1>pika-ui</h1>
-          <h2>一个厉害的UI框架</h2>
+          <h1>Pika-UI</h1>
+          <h2>一个面向学习者的极简UI框架</h2>
           <p class="actions">
               <a href="https://github.com">Github</a>
               <router-link to="/doc">开始</router-link>

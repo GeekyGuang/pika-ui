@@ -42,6 +42,7 @@ export default {
       height: 100vh;
       > .nav {
           flex-shrink: 0;
+          color: black;
       }
       > .content {
           flex-grow: 1;
