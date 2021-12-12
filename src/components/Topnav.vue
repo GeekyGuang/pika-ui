@@ -1,13 +1,12 @@
 <template>
     <div class="topnav">
-        <div class="logo" >
+        <router-link to="/" class="logo" >
             <svg class="icon">
                 <use xlink:href="#icon-pokemon"></use>
             </svg>
-        </div>
+        </router-link>
         <ul class="menu">
-            <li>菜单1</li>
-            <li>菜单2</li>
+            <router-link to="/doc">文档</router-link>
         </ul>
         <span class="toggleAside" @click="toggleMen"></span>
     </div>
@@ -38,7 +37,6 @@
        justify-content: center;
        align-items: center;
        > .logo {
-           min-width: 6em;
            margin-right: auto;
            > svg {
                width: 32px;
@@ -50,7 +48,7 @@
            display: flex;
            white-space: nowrap;
            flex-wrap: nowrap;
-           > li {
+           > a {
                margin: 0 1em;
            }
        }
@@ -68,7 +66,10 @@
 
        @media (max-width: 500px) {
        > .menu{ display: none;}
-       > .logo{margin:0 auto}
+       > .logo{
+           margin:0 auto;
+           border: 1px solid red;
+           }
 
        > .toggleAside {
           display: inline-block;
