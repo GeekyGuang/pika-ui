@@ -48,14 +48,18 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  $black: #2c2f32;
+  $nav-bg: #011627;
+  $yellow: #fcbd00;
+  $heighlight-grey: #efefef;
   .layout {
       display: flex;
       flex-direction: column;
       height: 100vh;
       > .nav {
           flex-shrink: 0;
-          color: black;
-          background: #f7b81a;
+          color: $yellow;
+          background: $nav-bg;
           box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
       }
       > .content {
@@ -82,14 +86,15 @@ export default {
       }
   }
   aside {
-      background: #3a7dcd;
+      background: #fcfcfc;
       width: 200px;
       position: fixed;
       top:0;
       left: 0;
       padding-top: 70px;
       height: 100%;
-      color: white;
+      color: $black;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
       > h2 {
           margin-bottom: 4px;
           padding: 0 16px;
@@ -99,19 +104,47 @@ export default {
           }
       }
       > ol {
+          li {
+              margin-bottom: 4px;
+          }
           a {
               padding: 8px 32px;
               display: block;
+
+              &:hover {
+                  background: $heighlight-grey;
+              }
           }
 
           .router-link-active {
-              background: #f7b81a;
-              color: black;
-              box-shadow: 0 0 3px rgba(0,0,0,0.25);
+              color: #011627;
+              background: $heighlight-grey;
               position: relative;
+                &::after {
+                    content: "";
+                    display: block;
+                    animation: bdrolate 800ms;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 3px;
+                    height: 100%;
+                    background-color: $yellow;
+                }
+
+             @keyframes bdrolate {
+                0% {
+                transform: rotateX(90deg);
+                }
+                100% {
+                transform: rotateX(0deg);
+                }
+            }
+        }
+
           }
       }
-  }
+  
   main {
       overflow: auto;
   }
