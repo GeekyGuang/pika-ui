@@ -5,6 +5,8 @@ import {baseParse} from '@vue/compiler-core'
 
 // https://vitejs.dev/config/
 export default {
+  base: './',
+  assetsDir: 'assets',
   plugins: [vue({
     include: [/\.vue$/, /\.md$/], // <--
   }), md()]
