@@ -13,6 +13,7 @@
     "node-sass": "npm:sass@^1.26.11"
   },
   "dependencies": {
+    "@vitejs/plugin-vue": "^2.0.0",
     "github-markdown-css": "^4.0.0",
     "marked": "^1.1.1",
     "prismjs": "^1.21.0",
@@ -20,6 +21,7 @@
     "vue-router": "4.0.0-beta.3"
   },
   "devDependencies": {
+    "@vue/compiler-core": "3.0.0",
     "@vue/compiler-sfc": "3.0.0",
     "rollup-plugin-esbuild": "2.5.0",
     "rollup-plugin-scss": "2.6.0",
