@@ -1,6 +1,10 @@
 {
-  "name": "pika-ui",
+  "name": "pika-ui-vue",
   "version": "0.0.1",
+  "file": [
+    "dist/lib/*"
+  ],
+  "main": "dist/lib/pika.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
