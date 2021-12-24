@@ -5,7 +5,7 @@
 然后在你的代码中写入下面的代码
 
 ```
-import {Button, Tabs, Switch, Dialog} from "pika-ui"
+import {Button, Tabs, Switch, Dialog} from "pika-ui-vue"
 ```
 
 就可以使用我提供的组件了。
@@ -21,7 +21,7 @@ import {Button, Tabs, Switch, Dialog} from "pika-ui"
   </div>
 </template>
 <script>
-import {Button, Tabs, Switch, Dialog} from "pika-ui"
+import {Button, Tabs, Switch, Dialog} from "pika-ui-vue"
 export default {
   components: {Button}
 }
