@@ -2,6 +2,7 @@
     <div class="layout">
         <Topnav class="nav" toggleMenuButtonVisible/>
         <div class="content" >
+            <div class="mask" v-if="menuVisible" @click="toggleMen"></div>
             <aside v-if="menuVisible">
                 <h2>文档</h2>
                 <ol>
@@ -43,7 +44,10 @@ export default {
     components: {Topnav},
     setup() {
        const menuVisible = inject<Ref<boolean>>('menuVisible')!
-       return {menuVisible}
+        const toggleMen = () => {
+            menuVisible.value = !menuVisible.value
+        }
+       return {menuVisible,toggleMen}
     }
 }
 </script>
@@ -74,10 +78,23 @@ export default {
         }
       }
   }
+
+  .mask {
+      @media (max-width: 500px) {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        z-index: 1;
+      } 
+  }
   .content {
       display: flex;
       > aside {
           flex-shrink: 0;
+          z-index: 2;
       }
       > main {
           flex-grow: 1;
